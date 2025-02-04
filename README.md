@@ -97,7 +97,8 @@ Follow these steps to set up and run the project:
         sudo dnf install git -y  
    *  Verifiy the installation:
         `git --version`  
-   *  ![git version](https://github.com/user-attachments/assets/33befa83-e24e-42cf-b0c2-a7a4ba36f27c)  
+   
+      
   ### 5. Set up GitHub  
    *  Head to GitHub's signup page.[GitHub Signup Page](https://github.com/join) to create account  
    *  Select New repository afterwards  
