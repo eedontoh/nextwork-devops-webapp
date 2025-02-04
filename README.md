@@ -12,27 +12,112 @@ Git is a version control system for tracking code changes by taking snapshots of
 2. VSCode
 3. GitHub
   
-Git using the commands sudo dnf update -y sudo dnf install git -y
+
+## Program Structure
+├── web.xml & index.jsp # web application files
+
+├── pom.xml # Maven Project Object Model file
+
+└── README.md # Documentation for the project
+
+
+## Setup & Installation
+Follow these steps to set up and run the project:
+
+### 1. Set up an IAM user
+### 2. Set Up Your Web App in the Cloud
+  * Launch an EC2 instance and save the private key-pair file in .pem format in DevOps folder on Desktop 
+  
+  * Install VSCode  
+  
+  * In the terminal, run the following command to change directory and allow access to your .pem file.  
+     `cd ~/Desktop/DevOps`  
+     `chmod 400 nextwork-keypair.pem`  
+    
+  * Use the following command to connect to your EC2 instance:   
+     `ssh -i [PATH TO YOUR .PEM FILE] ec2-user@[YOUR PUBLIC IPV4 DNS]`  
+  
+  * Install Apache Maven to set up all the necessary web files to create  web app structure and its dependencies using the commands below:
+      ```
+     wget https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+
+     sudo tar -xzf apache-maven-3.5.2-bin.tar.gz -C /opt
+
+     echo "export PATH=/opt/apache-maven-3.5.2/bin:$PATH" >> ~/.bashrc
+
+     source ~/.bashrc
+  
+  *  To verify that Maven is installed correctly, run:
+     `mvn -v` 
+ 
+  * Install Java 8, more specifically, Amazon Correto 8 to enable maven build the webapp.  
+     ```
+     sudo amazon-linux-extras enable corretto8
+
+     sudo yum install java-1.8.0-amazon-corretto-devel
+
+     export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64
+
+     export PATH=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/bin/:$PATH
+  
+  *  To verify that java 8 correctly installed, run:
+     `java -version`
+  *  Use mvn to generate a Java web app. To do this, use these commands
+      ```
+     mvn archetype:generate \
+         -DgroupId=com.nextwork.app \
+         -DartifactId=nextwork-web-project \
+         -DarchetypeArtifactId=maven-archetype-webapp \
+         -DinteractiveMode=false
+   
+   ### 3. Use Remote - SSH to connect VSCode with your EC2 instance.
+   * Connect VSCode with your EC2 Instance.  
+   * Select the Extensions icon at the side of your VSCode window.
+   * Search for Remote - SSH and click Install for the extension.  
+   * Click on the double arrow icon at the bottom left corner of your VSCode window.
+   * Select Configure SSH Hosts..., and clear everything in your config file (which should look like /Users/username/.ssh/config).
+   * Save your changes, and select Remote-SSH: Connect to Host... again.
+   * Select + Add New SSH Host...
+   * Enter the SSH command you used to connect to your EC2 instance: ssh -i [PATH TO YOUR .PEM FILE] ec2-user@[YOUR PUBLIC IPV4 DNS]
+   * Select the configuration file at the top of your window. It should look similar to /Users/username/.ssh/config
+   * Select the blue Open Config button on that popup.
+   * Confirm that all the details in your configuration file are correct.
+   * Click on the double arrow button on the bottom left corner and select Connect to Host again
+   * Select the EC2 instance
+   * From VSCode's left hand navigation bar, select the Explorer icon.
+   * Select Open folder.
+   * Enter /home/ec2-user/nextwork-web-project.
+   * Press OK
+   * If you see this popup, select Yes, I trust the authors  
+
+  ### 4. Install Git 
+   *  Run the following command in the terminal to install Git
+      ```
+        sudo dnf update -y  
+        sudo dnf install git -y  
+   *  Verifiy the installation:
+        `git --version`  
+   *  ![git version](https://github.com/user-attachments/assets/33befa83-e24e-42cf-b0c2-a7a4ba36f27c)  
+  ### 5. Set up GitHub  
+   *  Head to GitHub's signup page.[GitHub Signup Page](https://github.com/join) to create account  
+   *  Select New repository afterwards  
+   *  Select Create repository.
+
+This loads up a new page where you can create a repository.
+
+Under Owner, click on the Choose an owner dropdown and select your GitHub username.
+Under Repository name, enter nextwork-devops-webapp
+For the Description, enter Java web app set up on an EC2 instance.
+Choose your visibility settings. We'd recommend selecting Public to make your repository available for the world to see.
 
 
 
-We will:
- 🐱 Set up Git and GitHub.
- 🤝 Connect web app project to a GitHub repo.
- 🤝 Make changes to the web app files and watch GitHub repo update too.
 
-KEY TOOLS:
   
   
-STEP #1
-Set up your aws account and login in with your IAM user
 
-STEP #2
-Set Up Your Web App in the Cloud
--Launch an EC2 instance 
--Install VSCode
 
-STEP #3
+
 Install Git
 -Launch an EC2 instance.
 -Set up VSCode on your local computer.
