@@ -102,65 +102,20 @@ Follow these steps to set up and run the project:
   ### 5. Set up GitHub  
    *  Head to GitHub's signup page.[GitHub Signup Page](https://github.com/join) to create account  
    *  Select New repository afterwards  
-   *  Select Create repository.
-
-This loads up a new page where you can create a repository.
-
-Under Owner, click on the Choose an owner dropdown and select your GitHub username.
-Under Repository name, enter nextwork-devops-webapp
-For the Description, enter Java web app set up on an EC2 instance.
-Choose your visibility settings. We'd recommend selecting Public to make your repository available for the world to see.
-
-
-
-
+   *  Run the command below to creat a local repository on your local device  
+       `Git init`
+ 
+### 6. Push local changes to GitHub
+* Ran the command to connect the local project folder to the git repo  
+    `git remote add origin https://github.com/eedontoh/nextwork-devopswebapp.` 
+* To stage changes
+  `git add .`
+* Run the command below to commit changes to the git repo. Using '-m' provides a message to describe the commit action
+   `git commit -m "Updated index.jsp with new content"` 
+* Run the command below to save the local project online on github. Using '-u' means i am setting an 'upstream' for my local branch, which means i am telling Git to remember to push to 
+  master by default.
+     `git push -u origin master`
   
-  
-
-
-
-Install Git
--Launch an EC2 instance.
--Set up VSCode on your local computer.
--Use Remote - SSH to connect VSCode with your EC2 instance
-
- 	
-Connect a GitHub Repo with AWS
- 
-Introducing Today's Project!
-What is GitHub?
-Github is an online site for hosting repos tracked by git. I used it to host the content of my local repos include my web application source code, files and folders.
-
-One thing I didn't expect...
-I didn't expect ssh on vscode to work but it worked perfectly. I had to ensure my security group inbound rules allowed ssh traffic on port 22 over my ip.
-
-This project took me...
-About an hour
-
-Git and GitHub
-Git is a version control system for tracking code changes by taking snapshots of how my files look like at specific moments, and each snapshot is considered a 'version. I installed Git using the commands sudo dnf update -y sudo dnf install git -y
-GitHub as a storage space for different version of my project that Git tracks. I'm using GitHub because its is a cloud service that lets me access my work from anywehere and collaborate with other developers over the internet.
-
-![image](https://github.com/user-attachments/assets/e63732cd-8a37-40af-a66d-1737ac4eb57a)
- 
-My local repository
-A Git repository (aka 'repo') is a folders which contains all my project files and their entire version history
-Git init is a command to create a local repository on my computer. I run git init inside a directory, to sets up the a local Git repository which means changes are now tracked for version control
-After running git init, the response from the terminal was some yellow texts. Git suggests different branch names like 'main' or 'development' instead of 'master'. 
-A branch in Git is a parallel version or 'alternate universe' of the same project
- 
- **To push local changes to GitHub, I ran three commands**
-
-################The first command I ran to connect my local project folder to my git repo was;############## 
-git remote add origin https://github.com/eedontoh/nextwork-devopswebapp.
-
-################ To stage changes ############################################
-git add .
-
-The second command I ran was; git commit -m "Updated index.jsp with new content" to commit changes to my git repo Using '-m' provides a message to describe the commit action
-git push
-
-The third command I ran was; git push -u origin master to save my local project online on github. Using '-u' means i am setting an 'upstream' for my local branch, which means i am telling Git to remember to push to master by default.
 Authentication
 When I commit changes to GitHub, Git asks for my credentials because Git needs to double check that i have the right to push any changes to the remote origin my local repo is connected with
 Local Git identity
