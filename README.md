@@ -115,7 +115,8 @@ Follow these steps to set up and run the project:
 * Ran the command to connect the local project folder to the git repo  
     `git remote add origin https://github.com/eedontoh/nextwork-devopswebapp.`
   
-![nextwork-java-web-app-repo](https://github.com/user-attachments/assets/97022b1b-b198-40c9-867b-1ef974e1c43c)  
+![nextwork-java-web-app-repo](https://github.com/user-attachments/assets/72c07d87-6f34-493d-97da-a5e305473797)  
+
 
   
 * To stage changes
@@ -130,22 +131,26 @@ Follow these steps to set up and run the project:
 ### 6. Authetication and Local Identity
 * Authenticate via tokens to connect to your online repo.  
 
-  ![token setup](https://github.com/user-attachments/assets/82de6908-dbcb-4c52-a2ec-c737c3286df6)  
   
+  ![token setup](https://github.com/user-attachments/assets/0d46c0ec-1648-418d-8839-f3c6f893f090)  
+
 
 * Set up local Git identity by entering your name and email as Git needs to double check that you have the right to push any changes to the remote origin the local repo is connected with
 *  Log History - shows the history of commits, which also mentions the commit author's name
-  Run `git log` 
+  Run `git log`
+
+ ![git log output](https://github.com/user-attachments/assets/452b2d06-4a4c-4f41-ab60-fb6b920fbbfa)  
+
   
 ### 7. Making changes again
 * To see Git working in action, update the index.jsp file  and run the following commands  
-  `git add .`  
-  `git commit -m "Add a new line to index.jsp"`    
-  `git push`    
-
- ![second git push](https://github.com/user-attachments/assets/7ce3b7b7-5aee-467e-9f0f-0a2273fd7627)
+  `git add .`    
+  `git commit -m "Add a new line to index.jsp"`      
+  `git push`        
 
  
+ ![second git push](https://github.com/user-attachments/assets/dfbf38d7-63cf-4f8a-88e5-37e4320c575b)
+
  
 
 
