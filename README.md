@@ -1,4 +1,4 @@
-# Connect a GitHub Repo with AWS
+![token setup](https://github.com/user-attachments/assets/2e5ea31b-bb31-4c61-80b4-935325c926e7)# Connect a GitHub Repo with AWS
 Git is a version control system for tracking code changes by taking snapshots of how files look like at specific moments, and each snapshot is considered a 'version.
 
 
@@ -103,35 +103,45 @@ Follow these steps to set up and run the project:
    *  Head to GitHub's signup page.[GitHub Signup Page](https://github.com/join) to create account  
    *  Select New repository afterwards  
    *  Run the command below to creat a local repository on your local device  
-       `Git init`
+       `Git init`  
+
+      ![git init responds](https://github.com/user-attachments/assets/4a784bf1-3de4-4ad0-8232-0c1e10315dcd)  
+
  
 ### 6. Push local changes to GitHub
 * Ran the command to connect the local project folder to the git repo  
-    `git remote add origin https://github.com/eedontoh/nextwork-devopswebapp.` 
+    `git remote add origin https://github.com/eedontoh/nextwork-devopswebapp.`
+  
+![nextwork-java-web-app-repo](https://github.com/user-attachments/assets/97022b1b-b198-40c9-867b-1ef974e1c43c)  
+
+  
 * To stage changes
   `git add .`
-* Run the command below to commit changes to the git repo. Using '-m' provides a message to describe the commit action
+* Run the command below to commit changes to the git repo. Using '-m' provides a message to describe the commit action  
    `git commit -m "Updated index.jsp with new content"` 
 * Run the command below to save the local project online on github. Using '-u' means i am setting an 'upstream' for my local branch, which means i am telling Git to remember to push to 
-  master by default.
+  master by default.  
      `git push -u origin master`
+
+
+### 6. Authetication and Local Identity
+* Authenticate via tokens to connect to your online repo.  
+
+  ![token setup](https://github.com/user-attachments/assets/82de6908-dbcb-4c52-a2ec-c737c3286df6)  
   
-Authentication
-When I commit changes to GitHub, Git asks for my credentials because Git needs to double check that i have the right to push any changes to the remote origin my local repo is connected with
-Local Git identity
-Git needs my name and email because Git needs author information for commits to track who made what change
-Running git log showed me the my history of commits, which also mentions the commit author's name
- 
-GitHub tokens
-GitHub authentication failed when I entered my password because GitHub phased out password authentication to connect with repositories over HTTPS there are too many security risks and passwords can get intercepted over the internet.
-A GitHub token is a unique string of characters that looks like a random password. I'm using one in this project because they are great for security since they're unique and very hard to guess
-I could set up a GitHub token by: Heading back into my browser with GitHub open. Select my profile icon and select Settings. Select Developer settings Select Personal access tokens. Select Tokens (classic). Select Generate new token
- 
-Making changes again
-I wanted to see Git working in action, so I updated the index.jsp file but I couldn't see the changes in my GitHub repo initially because the changes on my local repo has not been pushed to git hub yet.
-I finally saw the changes in my GitHub repo after i run the commands: git add .
-git commit -m "Add a new line to index.jsp" git push
- 
+
+* Set up local Git identity by entering your name and email as Git needs to double check that you have the right to push any changes to the remote origin the local repo is connected with
+*  Log History - shows the history of commits, which also mentions the commit author's name
+  Run `git log` 
+  
+### 7. Making changes again
+* To see Git working in action, update the index.jsp file  and run the following commands  
+  `git add .`
+  `git commit -m "Add a new line to index.jsp"`  
+  `git push`  
+
+ ![second git push](https://github.com/user-attachments/assets/7ce3b7b7-5aee-467e-9f0f-0a2273fd7627)
+
  
  
 
