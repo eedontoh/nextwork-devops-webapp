@@ -1,4 +1,4 @@
-![token setup](https://github.com/user-attachments/assets/2e5ea31b-bb31-4c61-80b4-935325c926e7)# Connect a GitHub Repo with AWS
+# Connect a GitHub Repo with AWS
 Git is a version control system for tracking code changes by taking snapshots of how files look like at specific moments, and each snapshot is considered a 'version.
 
 
@@ -96,8 +96,11 @@ Follow these steps to set up and run the project:
         sudo dnf update -y  
         sudo dnf install git -y  
    *  Verifiy the installation:
-        `git --version`  
-   
+        `git --version`
+
+          
+   ![git version](https://github.com/user-attachments/assets/3decc08c-2141-46ff-9ec7-5bd401cbee3d)
+
       
   ### 5. Set up GitHub  
    *  Head to GitHub's signup page.[GitHub Signup Page](https://github.com/join) to create account  
@@ -136,9 +139,9 @@ Follow these steps to set up and run the project:
   
 ### 7. Making changes again
 * To see Git working in action, update the index.jsp file  and run the following commands  
-  `git add .`
-  `git commit -m "Add a new line to index.jsp"`  
-  `git push`  
+  `git add .`  
+  `git commit -m "Add a new line to index.jsp"`    
+  `git push`    
 
  ![second git push](https://github.com/user-attachments/assets/7ce3b7b7-5aee-467e-9f0f-0a2273fd7627)
 
