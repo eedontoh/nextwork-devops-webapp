@@ -93,8 +93,8 @@ Follow these steps to set up and run the project:
   ### 4. Install Git 
    *  Run the following command in the terminal to install Git
       ```
-        sudo dnf update -y  
-        sudo dnf install git -y  
+        sudo yum update -y  
+        sudo yum install git -y  
    *  Verifiy the installation:
         `git --version`
 
