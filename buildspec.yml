@@ -19,26 +19,17 @@ phases:
 
       # ✅ Fail if settings.xml is missing
       - if [ ! -f settings.xml ]; then echo "❌ settings.xml not found in project root"; exit 1; fi
-
-  build:
-    commands:
-      - echo "Compiling the Maven project..."
-      - mvn -s settings.xml clean compile package
-
-      # ✅ Fail if no JAR is created
-      - if [ ! -f target/*.jar ]; then echo "❌ Build failed — no JAR found in target/"; exit 1; fi
-
     runtime-versions:
       java: corretto8
   pre_build:
     commands:
       - echo Initializing environment
-      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 123456789012 --region us-east-2 --query authorizationToken --output text`
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nextwork --domain-owner 123456789012 --region us-east-2 --query authorization        Token --output text`
 
   build:
     commands:
           - echo "Compiling the Maven project..."
-         - mvn -s settings.xml clean compile package
+          - mvn -s settings.xml clean compile package
 
       # ✅ Fail if no JAR is created
       - if [ ! -f target/*.jar ]; then echo "❌ Build failed — no JAR found in target/"; exit 1; fi
