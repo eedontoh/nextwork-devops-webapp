@@ -2,6 +2,32 @@ version: 0.2
 
 phases:
   install:
+        commands:
+      - echo "Installing Maven..."
+      - yum install -y maven
+
+      - echo "Generating CodeArtifact auth token..."
+      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+            --domain $DOMAIN \
+            --domain-owner $DOMAIN_OWNER \
+            --region $REGION \
+            --query authorizationToken \
+            --output text)
+
+      # ✅ Fail if token is empty
+      - if [ -z "$CODEARTIFACT_AUTH_TOKEN" ]; then echo "❌ Failed to retrieve CodeArtifact token"; exit 1; fi
+
+      # ✅ Fail if settings.xml is missing
+      - if [ ! -f settings.xml ]; then echo "❌ settings.xml not found in project root"; exit 1; fi
+
+  build:
+    commands:
+      - echo "Compiling the Maven project..."
+      - mvn -s settings.xml clean compile package
+
+      # ✅ Fail if no JAR is created
+      - if [ ! -f target/*.jar ]; then echo "❌ Build failed — no JAR found in target/"; exit 1; fi
+
     runtime-versions:
       java: corretto8
   pre_build:
@@ -11,8 +37,12 @@ phases:
 
   build:
     commands:
-      - echo Build started on `date`
-      - mvn -s settings.xml compile
+          - echo "Compiling the Maven project..."
+         - mvn -s settings.xml clean compile package
+
+      # ✅ Fail if no JAR is created
+      - if [ ! -f target/*.jar ]; then echo "❌ Build failed — no JAR found in target/"; exit 1; fi
+
   post_build:
     commands:
       - echo Build completed on `date`
