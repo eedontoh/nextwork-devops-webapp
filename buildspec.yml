@@ -44,7 +44,6 @@ phases:
           --region $REGION \
           --query authorizationToken \
           --output text)
-
       - echo "CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}"
 
       # ✅ Fail if token is empty
