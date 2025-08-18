@@ -44,7 +44,7 @@ phases:
           --region $REGION \
           --query authorizationToken \
           --output text)
-      - echo "CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}"
+      - echo 'CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}'
 
       # ✅ Fail if token is empty
       - if [ -z "$CODEARTIFACT_AUTH_TOKEN" ]; then echo "❌ Failed to retrieve CodeArtifact token"; exit 1; fi
@@ -66,4 +66,5 @@ phases:
     commands:
       - echo "Compiling the Maven project..."
       - mvn -s settings.xml clean compile package
+
 
