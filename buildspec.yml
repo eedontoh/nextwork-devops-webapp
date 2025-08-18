@@ -38,13 +38,14 @@ phases:
 
       # ✅ Generate token
       - echo "Generating CodeArtifact auth token..."
-      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+      - |
+        export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
           --domain $DOMAIN \
           --domain-owner $DOMAIN_OWNER \
           --region $REGION \
           --query authorizationToken \
           --output text)
-      - echo 'CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}'
+      - echo "CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}"
 
       # ✅ Fail if token is empty
       - if [ -z "$CODEARTIFACT_AUTH_TOKEN" ]; then echo "❌ Failed to retrieve CodeArtifact token"; exit 1; fi
@@ -55,7 +56,8 @@ phases:
   pre_build:
     commands:
       - echo "Refreshing CodeArtifact auth token..."
-      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+      - |
+        export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
           --domain $DOMAIN \
           --domain-owner $DOMAIN_OWNER \
           --region $REGION \
@@ -66,5 +68,3 @@ phases:
     commands:
       - echo "Compiling the Maven project..."
       - mvn -s settings.xml clean compile package
-
-
