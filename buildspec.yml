@@ -48,10 +48,18 @@ phases:
       - echo "CODEARTIFACT_AUTH_TOKEN length: ${#CODEARTIFACT_AUTH_TOKEN}"
 
       # ✅ Fail if token is empty
-      - if [ -z "$CODEARTIFACT_AUTH_TOKEN" ]; then echo "❌ Failed to retrieve CodeArtifact token"; exit 1; fi
+      - |
+        if [ -z "$CODEARTIFACT_AUTH_TOKEN" ]; then 
+          echo "❌ Failed to retrieve CodeArtifact token"; 
+          exit 1; 
+        fi
 
       # ✅ Fail if settings.xml is missing
-      - if [ ! -f settings.xml ]; then echo "❌ settings.xml not found in project root"; exit 1; fi
+      - |
+        if [ ! -f settings.xml ]; then 
+          echo "❌ settings.xml not found in project root"; 
+          exit 1; 
+        fi
 
   pre_build:
     commands:
